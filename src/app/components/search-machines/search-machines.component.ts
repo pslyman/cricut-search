@@ -16,7 +16,7 @@ import { GetMachinesService } from '../../services/get-machines.service';
   animations: [staggeredFadeIn, fadeIn],
 })
 export class SearchMachinesComponent implements OnInit {
-  public title = 'Cricut Cutting Machines';
+  public title = `Let's find you the perfect machine.`;
   public machines: Machine[] = [];
   public machinesFiltered: Machine[] = [];
   public searchFocus = false;
