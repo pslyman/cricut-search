@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="my-4">{{ title }}</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search for machines"
+          [(ngModel)]="searchQuery"
+          (focus)="searchFocus = true"
+          (blur)="searchFocus = false"
+          (keyup)="searchMachines()"
+        />
+      </div>
+
+      <ul *ngIf="searchFocus" [@staggeredFadeIn]="searchSuggestions.length" class="mb-0">
+        <li *ngFor="let text of searchSuggestions">
+          {{ text }}
+        </li>
+      </ul>
+
+      <div *ngIf="machinesFiltered.length > 0">
+        <div class="row">
+          @if (searchQuery.length > 0) {
+          <h3 class="mt-3">Found {{ machinesFiltered.length }} machines:</h3>
+          } @else {
+          <h3 class="mt-3">Search to narrow down</h3>
+          }
+
+          <div
+            *ngFor="let machine of machinesFiltered"
+            class="col-lg-6 mb-4 d-flex align-items-stretch"
+          >
+            <app-machine-card
+              [name]="machine.name"
+              [description]="machine.description"
+              [image]="machine.image"
+              [url]="machine.url"
+            >
+              <p *ngIf="searchTags.length > 0" class="matching-tag-text">
+                Matching tags: <em>{{ searchTags | formatTags }}</em>
+              </p>
+            </app-machine-card>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="machinesFiltered.length === 0" class="col text-center">
+        <p>No machines found</p>
+      </div>
+    </div>
+  </div>
+</div>

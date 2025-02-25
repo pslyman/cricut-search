@@ -1,0 +1,9 @@
+<ul ngbNav class="nav-tabs">
+  @for (link of links; track link) {
+    <li [ngbNavItem]="link.fragment">
+      <a ngbNavLink routerLink="." [fragment]="link.fragment">{{ link.title }}</a>
+    </li>
+    }
+</ul>
+
+<router-outlet />
