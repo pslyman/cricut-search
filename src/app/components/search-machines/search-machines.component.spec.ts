@@ -14,6 +14,7 @@ describe('SearchMachinesComponent', () => {
 
   const testMachines: Machine[] = [{
     id: 1,
+    rank: 1,
     name: 'Cricut Maker 00',
     description:
       '',
@@ -27,6 +28,7 @@ describe('SearchMachinesComponent', () => {
         'Cut',
         'Write',
 
+
       ],
       toolTags: [
         'Premium Fine-Point Blade',
@@ -36,7 +38,6 @@ describe('SearchMachinesComponent', () => {
       materialTags: [
         'Acetate',
         'Adhesive Foil',
-
       ],
       specTags: ['Bluetooth', 'USB', 'iOS', 'Mac', 'Windows', 'Android'],
     },
@@ -44,7 +45,8 @@ describe('SearchMachinesComponent', () => {
     url: '',
   }, {
     id: 1,
-    name: 'Cricut Maker 00',
+    rank: 2,
+    name: 'Cricut Maker 99',
     description:
       '',
     tags: {
@@ -67,6 +69,7 @@ describe('SearchMachinesComponent', () => {
       materialTags: [
         'Acetate',
         'Adhesive Foil',
+
       ],
       specTags: ['Bluetooth', 'USB', 'iOS', 'Mac', 'Windows', 'Android'],
     },
@@ -139,5 +142,14 @@ describe('SearchMachinesComponent', () => {
     component.searchQuery = 'cu';
     component.searchMachines();
     expect(component.machinesFiltered).toEqual(mockMachines);
+  });
+
+  it('should sort by rank', () => {
+    component.machines[0].rank = 2;
+    component.machines[1].rank = 1;
+
+    component.machines = mockMachines;
+    component.getBestRank(component.machines);
+    expect(component.bestAvailableRank).toEqual(1);
   });
 });

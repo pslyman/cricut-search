@@ -4,6 +4,7 @@ import { Machine, MachineAPIResponse, MachineImageAPIResponse } from '../models/
 export const mockMachines: MachineAPIResponse[] = [
   {
     id: 1,
+    rank: 5,
     name: 'Cricut Maker 3',
     description:
       'With more power & tools, on top of custom cards, stickers & big banners up to 12 feet, you can cut fabrics, engrave metal, deboss leather & so much more.',
@@ -370,6 +371,7 @@ export const mockMachines: MachineAPIResponse[] = [
   },
   {
     id: 2,
+    rank: 4,
     name: 'Cricut Explore 3',
     description:
       'For the crafter looking to make popular projects like custom apparel, home decor & more. You can even make festive banners up to 12 feet long.',
@@ -718,6 +720,7 @@ export const mockMachines: MachineAPIResponse[] = [
   },
   {
     id: 3,
+    rank: 2,
     name: 'Cricut Joy Xtra',
     description:
       'Our fits-in-any-space cutting machine for popular projects like full-color stickers, custom cards, T-shirts & so much more.',
@@ -817,6 +820,7 @@ export const mockMachines: MachineAPIResponse[] = [
   },
   {
     id: 4,
+    rank: 1,
     name: 'Cricut Joy',
     description:
       'Our most compact machine for fun and functional everyday projects like custom cards, simple decals & labels to organize anything and everything.',
@@ -916,6 +920,7 @@ export const mockMachines: MachineAPIResponse[] = [
   },
   {
     id: 5,
+    rank: 6,
     name: 'Cricut Venture',
     description:
       'Our wide-format professional cutting machine that works at commercial speeds. Make extra-large projects like big paper flowers and wall decals, plus batches of T-shirts, totes & more.',
@@ -1070,6 +1075,7 @@ export const mockMachines: MachineAPIResponse[] = [
   },
   {
     id: 6,
+    rank: 3,
     name: 'Cricut Explore Air 2',
     description:
       'The go-to machine for paper crafting. Design and cut up to 24 inches for making custom cards, labels, stickers, personalized T-shirts & more.',

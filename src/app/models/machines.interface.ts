@@ -13,6 +13,7 @@ export interface Tags {
 }
 
 export interface MachineAPIResponse {
+  rank: number;
   id: number;
   name: string;
   description: string;

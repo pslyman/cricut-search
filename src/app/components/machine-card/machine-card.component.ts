@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-machine-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './machine-card.component.html',
   styleUrl: './machine-card.component.scss'
 })
@@ -12,4 +13,5 @@ export class MachineCardComponent {
   @Input() public description: string = '';
   @Input() public image: string = '';
   @Input() public url: string = '';
+  @Input() public bestRank: boolean = false;
 }

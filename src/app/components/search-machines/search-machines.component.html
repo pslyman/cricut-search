@@ -41,6 +41,7 @@
               [description]="machine.description"
               [image]="machine.image"
               [url]="machine.url"
+              [bestRank]="machine.rank === bestAvailableRank && machinesFiltered.length > 1"
             >
               <p *ngIf="searchTags.length > 0" class="matching-tag-text">
                 Matching tags: <em>{{ searchTags | formatTags }}</em>
