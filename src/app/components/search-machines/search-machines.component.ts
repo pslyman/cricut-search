@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { mockMachines } from '../../constants/mock-machines.constants';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Machine } from '../../models/machines.interface';
 import { staggeredFadeIn } from '../../constants/animations.constants';
 import { CommonModule } from '@angular/common';
 import { MachineCardComponent } from '../machine-card/machine-card.component';
 import { TruncatePipe } from '../../pipes/tag-pipe.pipe';
+import { GetMachinesService } from '../../services/get-machines.service';
 
 @Component({
   selector: 'app-search-machines',
@@ -17,10 +17,11 @@ import { TruncatePipe } from '../../pipes/tag-pipe.pipe';
 })
 export class SearchMachinesComponent implements OnInit {
   public title = 'Cricut Cutting Machines';
-  public machines: Machine[] = mockMachines;
-  public machinesFiltered: Machine[] = mockMachines;
+  public machines: Machine[] = [];
+  public machinesFiltered: Machine[] = [];
   public searchFocus = false;
   public allTags: string[] = [];
+  public getMachinesService = inject(GetMachinesService);
 
   public searchSuggestions = [
     'What materials are you using?',
@@ -34,7 +35,12 @@ export class SearchMachinesComponent implements OnInit {
   public searchTags: string[] = [];
 
   ngOnInit(): void {
-    this.generateTags();
+    this.getMachinesService.getMachines().subscribe((machines) => {
+      this.machines = machines;
+      this.machinesFiltered = machines;
+
+      this.generateTags();
+    });
   }
 
   public generateTags() {
@@ -77,7 +83,6 @@ export class SearchMachinesComponent implements OnInit {
     });
 
     this.searchTags = Array.from(searchTagsMap.keys());
-    console.log(this.searchTags);
 
     this.machinesFiltered = searchResults;
   }

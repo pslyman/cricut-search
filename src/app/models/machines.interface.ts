@@ -1,10 +1,5 @@
-export interface Machine {
-  id: number;
-  name: string;
-  description: string;
-  tags: Tags;
+export interface Machine extends MachineAPIResponse {
   image: string;
-  url: string;
 }
 
 export interface Tags {
@@ -15,4 +10,17 @@ export interface Tags {
   specTags: string[];
   // for any later on
   [key: string]: string[];
+}
+
+export interface MachineAPIResponse {
+  id: number;
+  name: string;
+  description: string;
+  tags: Tags;
+  url: string;
+}
+
+export interface MachineImageAPIResponse {
+  id: number;
+  image: string;
 }

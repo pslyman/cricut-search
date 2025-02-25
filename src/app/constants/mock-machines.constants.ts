@@ -1,7 +1,7 @@
-import { Machine } from '../models/machines.interface';
+import { Machine, MachineAPIResponse, MachineImageAPIResponse } from '../models/machines.interface';
 
 // This is hardcoded data that represents an searchable index of machines
-export const mockMachines: Machine[] = [
+export const mockMachines: MachineAPIResponse[] = [
   {
     id: 1,
     name: 'Cricut Maker 3',
@@ -365,8 +365,7 @@ export const mockMachines: Machine[] = [
       ],
       specTags: ['Bluetooth', 'USB', 'iOS', 'Mac', 'Windows', 'Android'],
     },
-    image:
-      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dw73772912/images/comparison/cricutMaker3/machine/Machine_Cricut_Maker3_Desktop.jpg',
+
     url: 'https://cricut.com/en-us/cutting-machines/cricut-maker/cricut-maker-3/cricut-maker-3/2008334.html',
   },
   {
@@ -715,8 +714,6 @@ export const mockMachines: Machine[] = [
       ],
       specTags: ['Bluetooth', 'USB', 'iOS', 'Mac', 'Windows', 'Android'],
     },
-    image:
-      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dwed21ef9a/images/comparison/cricutExplore3/machine/Machine_Cricut_Explore3_Desktop.jpg',
     url: 'https://cricut.com/en-us/cutting-machines/cricut-explore/cricut-explore-3/cricut-explore-3/2008337.html',
   },
   {
@@ -816,8 +813,6 @@ export const mockMachines: Machine[] = [
       ],
       specTags: ['Bluetooth', 'iOS', 'Mac', 'Windows', 'Android'],
     },
-    image:
-      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dwbba0f990/images/comparison/cricutJoyXtra/machine/Machine_Cricut_Xtra_Desktop.jpg',
     url: 'https://cricut.com/en-us/cutting-machines/cricut-joy/cricut-joy-xtra/cricut-joy-xtra/2010313.html',
   },
   {
@@ -917,9 +912,6 @@ export const mockMachines: Machine[] = [
       ],
       specTags: ['Bluetooth', 'iOS', 'Mac', 'Windows', 'Android'],
     },
-
-    image:
-      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dw95bc18f9/images/comparison/cricutJoy/machine/Machine_Cricut_Joy_Desktop.jpg',
     url: 'https://cricut.com/en-us/cutting-machines/cricut-joy/cricut-joy/cricut-joy/2007991.html',
   },
   {
@@ -1074,8 +1066,6 @@ export const mockMachines: Machine[] = [
       ],
       specTags: ['Bluetooth', 'USB', 'Mac', 'Windows'],
     },
-    image:
-      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dwa33d0d66/images/comparison/cricutVenture/machine/Machine_Cricut_Venture_Desktop.jpg',
     url: 'https://cricut.com/en-us/cutting-machines/cricut-venture/cricut-venture/cricut-venture/2008739.html',
   },
   {
@@ -1238,8 +1228,32 @@ export const mockMachines: Machine[] = [
       ],
       specTags: ['Bluetooth', 'USB', 'iOS', 'Mac', 'Windows', 'Android'],
     },
-    image:
-      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dw16ed7a76/images/comparison/cricutExploreAir2/machine/Machine_Cricut_Explore_Air2_Desktop.jpg',
     url: 'https://cricut.com/en-us/search?q=cricut+explore+air+2',
   },
 ];
+
+export const mockMachineImages: MachineImageAPIResponse[] = [
+  {
+    id: 1,
+    image:
+      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dw73772912/images/comparison/cricutMaker3/machine/Machine_Cricut_Maker3_Desktop.jpg',
+  },
+  {
+    id: 2,
+    image:
+      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dwed21ef9a/images/comparison/cricutExplore3/machine/Machine_Cricut_Explore3_Desktop.jpg',
+  },
+  {
+    id: 3,
+    image:
+      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dwbba0f990/images/comparison/cricutJoyXtra/machine/Machine_Cricut_Xtra_Desktop.jpg',
+  },
+  { id: 4, image: 'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dw95bc18f9/images/comparison/cricutJoy/machine/Machine_Cricut_Joy_Desktop.jpg' },
+  { id: 5, image: 'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dwa33d0d66/images/comparison/cricutVenture/machine/Machine_Cricut_Venture_Desktop.jpg' },
+  {
+    id: 6,
+    image:
+      'https://cricut.com/on/demandware.static/-/Library-Sites-cricut-content-na01/default/dw16ed7a76/images/comparison/cricutExploreAir2/machine/Machine_Cricut_Explore_Air2_Desktop.jpg',
+  },
+
+]
