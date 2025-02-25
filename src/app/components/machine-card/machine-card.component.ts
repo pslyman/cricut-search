@@ -13,5 +13,4 @@ export class MachineCardComponent {
   @Input() public description: string = '';
   @Input() public image: string = '';
   @Input() public url: string = '';
-  @Input() public bestRank: boolean = false;
 }

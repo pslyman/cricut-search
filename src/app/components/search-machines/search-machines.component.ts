@@ -22,7 +22,6 @@ export class SearchMachinesComponent implements OnInit {
   public searchFocus = false;
   public allTags: string[] = [];
   public getMachinesService = inject(GetMachinesService);
-  public bestAvailableRank = 1;
 
   public searchSuggestions = [
     'What materials are you using?',
@@ -38,7 +37,7 @@ export class SearchMachinesComponent implements OnInit {
   ngOnInit(): void {
     this.getMachinesService.getMachines().subscribe((machines) => {
       this.machines = machines;
-      this.getBestRank(this.machines);
+      this.sort(this.machines);
       this.machinesFiltered = machines;
 
       this.generateTags();
@@ -88,15 +87,14 @@ export class SearchMachinesComponent implements OnInit {
 
     this.searchTags = Array.from(searchTagsMap.keys());
 
-    this.getBestRank(searchResults);
+    this.sort(searchResults);
 
     this.machinesFiltered = searchResults;
   }
 
-  public getBestRank(machines: Machine[]): void {
+  public sort(machines: Machine[]): void {
     if (machines.length === 0) { return }
 
     machines.sort((a, b) => a.rank - b.rank);
-    this.bestAvailableRank = machines[0].rank;
   }
 }
