@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Machine } from '../../models/machines.interface';
-import { staggeredFadeIn } from '../../constants/animations.constants';
+import { fadeIn, staggeredFadeIn } from '../../constants/animations.constants';
 import { CommonModule } from '@angular/common';
 import { MachineCardComponent } from '../machine-card/machine-card.component';
 import { TruncatePipe } from '../../pipes/tag-pipe.pipe';
@@ -13,7 +13,7 @@ import { GetMachinesService } from '../../services/get-machines.service';
   imports: [CommonModule, FormsModule, MachineCardComponent, TruncatePipe],
   templateUrl: './search-machines.component.html',
   styleUrls: ['./search-machines.component.scss'],
-  animations: [staggeredFadeIn],
+  animations: [staggeredFadeIn, fadeIn],
 })
 export class SearchMachinesComponent implements OnInit {
   public title = 'Cricut Cutting Machines';
@@ -28,7 +28,7 @@ export class SearchMachinesComponent implements OnInit {
     'What hardware compatibility do you need?',
     'What tools do you need?',
     'What do you need your machine to do?',
-    'Example: "mug, foil, deboss"',
+    'Examples: "cut, draw, score", "paper flowers", or "Glitter Vinyl"',
   ];
 
   public searchQuery = '';
@@ -59,13 +59,14 @@ export class SearchMachinesComponent implements OnInit {
 
   public searchMachines() {
     if (this.searchQuery.length === 0) {
-      this.machinesFiltered = this.machines;
+      if (this.searchFocus) { this.machinesFiltered = [] } else { this.machinesFiltered = this.machines; }
+
       return;
     } else if (this.searchQuery.length < 3) {
       return;
     }
 
-    const searchTerms = this.searchQuery.replace(/,/g, '').split(' ');
+    const searchTerms = this.searchQuery.replace(/,/g, '').split(' ').filter(term => term !== '');
     const searchTagsMap = new Map<string, boolean>();
 
     const searchResults = this.machines.filter((machine: Machine) => {

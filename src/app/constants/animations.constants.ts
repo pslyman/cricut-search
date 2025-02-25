@@ -25,3 +25,10 @@ export const staggeredFadeIn = trigger('staggeredFadeIn', [
     }),
   ]),
 ]);
+
+export const fadeIn = trigger('fadeIn', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateY(20px)' }),
+    animate('0.2s', style({ opacity: 1, transform: 'translateY(0)' })),
+  ]),
+]);
