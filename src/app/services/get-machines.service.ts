@@ -23,11 +23,11 @@ export class GetMachinesService {
   }
 
 
-  private getMachinesAPI(): Observable<MachineAPIResponse[]> {
+  public getMachinesAPI(): Observable<MachineAPIResponse[]> {
     return of(mockMachines);
   }
 
-  private getMachineImagesAPI(): Observable<MachineImageAPIResponse[]> {
+  public getMachineImagesAPI(): Observable<MachineImageAPIResponse[]> {
     return of(mockMachineImages);
   }
 }

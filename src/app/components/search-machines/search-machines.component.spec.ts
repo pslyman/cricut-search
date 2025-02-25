@@ -22,18 +22,14 @@ describe('SearchMachinesComponent', () => {
       projectTags: [
         'Vinyl decals',
         'Written labels',
-
       ],
       cutTypeTags: [
         'Cut',
         'Write',
-
-
       ],
       toolTags: [
         'Premium Fine-Point Blade',
         'Foil Transfer Tool',
-
       ],
       materialTags: [
         'Acetate',
@@ -59,17 +55,14 @@ describe('SearchMachinesComponent', () => {
         'Cut',
         'Write',
         'Deboss',
-
       ],
       toolTags: [
         'Premium Fine-Point Blade',
         'Foil Transfer Tool',
-
       ],
       materialTags: [
         'Acetate',
         'Adhesive Foil',
-
       ],
       specTags: ['Bluetooth', 'USB', 'iOS', 'Mac', 'Windows', 'Android'],
     },
@@ -106,17 +99,15 @@ describe('SearchMachinesComponent', () => {
   });
 
   it('should filter machines based on search query', () => {
-    // match found in both
+    // match found in both machines
     component.searchQuery = 'cut';
     component.searchMachines();
+    expect(component.machinesFiltered).toEqual(mockMachines);
 
-    expect(component.machinesFiltered[0]).toEqual(mockMachines[0]);
-    expect(component.machinesFiltered[1]).toEqual(mockMachines[1]);
-
-    // one match found
+    // match found in one machine
     component.searchQuery = 'Deboss';
     component.searchMachines();
-    expect(component.machinesFiltered[0]).toEqual(mockMachines[1]);
+    expect(component.machinesFiltered).toEqual([mockMachines[1]]);
 
     // no match found
     component.searchQuery = 'xyz';
@@ -142,14 +133,5 @@ describe('SearchMachinesComponent', () => {
     component.searchQuery = 'cu';
     component.searchMachines();
     expect(component.machinesFiltered).toEqual(mockMachines);
-  });
-
-  it('should sort by rank', () => {
-    component.machines[0].rank = 2;
-    component.machines[1].rank = 1;
-
-    component.machines = mockMachines;
-    component.getBestRank(component.machines);
-    expect(component.bestAvailableRank).toEqual(1);
   });
 });

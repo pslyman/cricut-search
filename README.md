@@ -1,27 +1,33 @@
 # CricutSearch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
+## Introduction
 
-## Development server
+This project was built with new customers in mind. Cricut sells a number of cutting machines, but which one is best for you? On the cricut.com it can be a time sink trying to find which machine does what you need it to at the cheapest price. This webapp, when deployed, allows you to quickly search the cutting machines by entering search terms like blade type, acceptable materials, hardware compatibility, and more. Once you've entered what you're looking for, you'll be pointed to the machine with the best value. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project meets the following requirements:
+- Angular app, v14+
+- Has two-way binding (search-machines search input)
+- Uses content projection with ng-content (within machine-card.component)
+- Uses PipeTransform (tag-pipe)
+- Uses rxjs to combine two streams of data (image URLs, and array of Machine data)
 
-## Code scaffolding
+## Instructions
+#### Prerequisites
+- Node
+- Git
+- Angular CLI (v17 w used here, but you may be fine using the local version)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Run it
 
-## Build
+- `npm install`
+- `ng serve`
+- Say aloud "Hire this guy, he's great!"
+- Visit `localhost:4200` (or different if you chose another port)
+- Profit
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+For unit tests:
+- `ng test`
 
-## Running unit tests
+You can search project materials or type, machine features (deboss, cut, draw, wavy, etc), and supported operating systems and connection types (USB or Bluetooth).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Enjoy, and thanks! 
